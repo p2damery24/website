@@ -19,7 +19,7 @@ function guessing()
 	*/
 	var usersGuess = -1;
 	usersGuess = prompt("What is a number between 1-10?");
-	alert(usersGuess);
+	//alert(usersGuess);
 	var numOfGuesses = 0; // camel case 
 	var rand = Math.random()*10
 	rand = rand + 1;
@@ -40,8 +40,10 @@ function guessing()
 		alert("Your guess is too high");
 		}
 		usersGuess = prompt("Please enter a new number between 1-10")
-		
+		numOfGuesses = numOfGuesses +1;
 	}
+	// usersGuess equals rand
+	alert("Congrats, your guess is correct! It took you this many tries, "+numOfGuesses);
 	
 }// end of guessing()
 
