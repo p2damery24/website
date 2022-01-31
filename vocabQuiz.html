@@ -1,0 +1,177 @@
+<html>
+<head>
+<script language = JavaScript>
+
+var counter = 0;
+var score = 0;
+
+var words = ["Boston",
+			"Austin",
+			"Sacramento",
+			"Olympia",
+			"Annapolis"
+			];
+			
+var defs = ["Massachusetts", 
+			"Texas",
+			"California",
+			"Washington",
+			"Maryland"
+			]
+
+var asked = [false, 
+			false,
+			false,
+			false,
+			false
+			]
+
+var qAsked = 0;
+
+function nextQ()
+{
+	var checked = (document.getElementById("terms").checked) ;
+	document.getElementById("image").style.visibility = "hidden";
+	document.getElementById("answer").value = ""
+	
+	displayClue(checked)
+	
+}
+
+function displayClue(wordsOrDefs)
+{	
+	qAsked = getUnusedIndex()
+	if (wordsOrDefs == true)
+	{
+		document.getElementById("clue").value = words[qAsked]
+	}
+	else
+	{
+		document.getElementById("clue").value = defs[qAsked]
+	}
+}
+
+function getUnusedIndex()
+{
+	var rand = Math.floor(Math.random()*asked.length);
+	
+	if( qAsked < asked.length )
+	{
+		while( asked[rand] == true ) 
+		{
+			rand = Math.floor(Math.random()*asked.length);
+		}
+	}
+	else
+	{
+		rand = -1;
+	}
+	
+	
+	asked[rand] = true;
+	
+	return rand;
+}
+
+
+
+function nextA()
+{
+	var checked = (document.getElementById("terms").checked) ;
+	
+	checkAnswer(checked);
+
+}
+
+function checkAnswer(defsAreAnswers)
+{
+	var answers;
+	
+	if (defsAreAnswers == true)
+	{
+		answers = defs
+		
+	}
+	else
+	{
+		answers = words
+	}
+	
+	alert(answers)
+	
+	var WordDefAnswer = document.getElementById("answer").value;
+
+	if (WordDefAnswer == answers[qAsked])
+	{
+		score+=5
+		alert("correct, you have "+ score +" points so far")
+		document.getElementById("winlose").src = "images/yes.jpg"
+	}
+	else
+	{
+		alert("incorrect, your score is "+ score)
+		document.getElementById("winlose").src = "images/no.png"
+	}
+
+	var winWidth = (window.innerWidth/2)-166;
+	document.getElementById("image").style.left = winWidth ; 
+	document.getElementById("image").style.visibility = "visible";
+	
+	if(counter < words.length-1) 
+	{
+		counter++;
+	}
+	else 
+	{
+		counter = 0
+		endQuiz();
+	}
+}
+
+function endQuiz()
+{
+	alert("Game Over. You final score for the quiz is "+ score +" out of 25")
+	
+	for (i = 0; i<asked.length; i++)
+	{
+		asked[i] = false;
+	}
+}
+
+
+
+
+</script>
+</head>
+<body>
+<body bgcolor="yellow">
+<center>
+<h1>Vocab Quiz</h1>
+
+<a href="index.html">Go back to the amazing website </a>
+<br/><br/>
+<input type="radio" id="terms" name="qType" onchange="restart()" checked>
+  <label for="terms">Words</label>
+<input type="radio" id="defs" name="qType" on>
+  <label for="defs">Definitions</label>
+<input type="button" value="Next" onclick="nextQ()"/>
+
+<br/><br/>
+<input type = "text" id="clue" readonly size=40>
+
+<br/><br/>
+<input type = "text" id="answer" onfocusout="nextA()" size=40>
+<br/>
+<input type="button" value="Check Answer" />
+</center> 
+
+
+<div id="image" style="position:absolute; top:250; left: 450; visibility:hidden;">
+
+<img id="winlose" src="images/yes.jpg">
+
+</div>
+
+</body>
+</html>
+
