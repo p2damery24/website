@@ -1,0 +1,117 @@
+<html>
+<head>
+<script language = JavaScript>
+
+/*
+var cities =["San Francisco",
+			"San Jose",
+			"Oakland",
+			"Monterey",
+			"Seaside",
+			"Salinas",
+			"Gilroy",
+			"Marina",
+			"Pacific Grove",
+			"Sunnyvale", 
+			"Menlo Park",
+			"Santa Rosa",
+			"Napa",
+			"Pleasanton",
+			"Albany",
+			"Fremont",
+			"Half Moon Bay",
+			"Fairfield",
+			"Carmel Valley"
+			];
+*/
+
+
+var cities = [
+["San Francisco", "https://weather.com/weather/tenday/l/69bedc6a5b6e977993fb3e5344e3c06d8bc36a1fb6754c3ddfb5310a3c6d6c87"],
+["San Jose", "https://weather.com/weather/tenday/l/2e42c7eb8925daeec6059f12994f1a8c0cb3c49d5948965349e3c00f290dca4f"],
+["Oakland ", "https://weather.com/weather/tenday/l/b7a50d613197c6d1586c8e3f208cc2254dbb79164fad98e4346255f25d1f78c2"]
+];
+
+
+function seeW()
+{
+
+for (var counter = 0; counter < cities.length; counter++) 
+{
+	var whichOne = document.getElementById("climate").value;
+	
+    if (whichOne == cities[counter][1])
+	{
+        alert("Click to see the Forecast! " + cities[counter][2]);
+	
+    }
+    else 
+	{
+	
+        alert("Sorry, it looks like that city is not listed. Please try again?");
+		
+	}
+	
+}
+
+}
+
+
+
+
+
+
+
+
+/*
+
+var weatherSites = ["https://weather.com/weather/tenday/l/69bedc6a5b6e977993fb3e5344e3c06d8bc36a1fb6754c3ddfb5310a3c6d6c87",
+					"https://weather.com/weather/tenday/l/2e42c7eb8925daeec6059f12994f1a8c0cb3c49d5948965349e3c00f290dca4f",
+					"https://weather.com/weather/tenday/l/b7a50d613197c6d1586c8e3f208cc2254dbb79164fad98e4346255f25d1f78c2",
+					"https://weather.com/weather/tenday/l/544778ee2c9351ef373c28f78d15bc79dd0097da97ad37ca6c41112b157d72be",
+					"https://weather.com/weather/tenday/l/bd76137d85dcdaf3be84460427b33b179da4af8a1e01256006a07a78f193fb12",
+					"https://weather.com/weather/tenday/l/2b53e1cbe0e192e23cb2e62f5c8df4ff33be5513074c0768d42d11441ebce2c3",
+					"https://weather.com/weather/tenday/l/5b4bbf6145dedd81c2330cb898859d3f0529da39269b8aa8a8a0464dcc24ca24",
+					"https://weather.com/weather/tenday/l/9e57f5f3acd56c5b4f74fd2176e63974bcc79acb128c504ac7e908729c0f533d",
+					"https://weather.com/weather/tenday/l/0b121a64a36771358a0b87a77be7da719f38fbcf2656465a4d13361c598f6e26",
+					"https://weather.com/weather/tenday/l/193ae648ec30e1c1f5cdb2e4e7db1b02450d40f5318c227367737eb47c09ea06", 
+					"https://weather.com/weather/tenday/l/11c934eb83d56174a835cd2a815480aa66c466b5a6b949c56389964350ab4865",
+					"https://weather.com/weather/tenday/l/a9bbe7fb83b57740b3a6f18bba44b15e4b4941918366a8eda426d78bd473a5d5",
+					"https://weather.com/weather/tenday/l/675c3c9c71deb01336842c77142778dcd9adb32d842239b789c5876508e5808c",
+					"https://weather.com/weather/tenday/l/a69612f946946b07bcd5df10d0fcc9850dc2d49b2d936cfdcc3b57921499bd8cdd2cfe3990178451a5ebf90107785fef",
+					"https://weather.com/weather/tenday/l/c9084527f745552c3cd4307f0cb13fcecddbf6f63c7094b913e93a9efb9791d0",
+					"https://weather.com/weather/tenday/l/86eeca114afa9a157ffe14367d15e13d55fee871e96bcdc2891c55bf71798828",
+					"https://weather.com/weather/tenday/l/cc2a2a9519cc16daefd9a789d6825bbd15311c59180e15a1aa76eb5a83f4be48",
+					"https://weather.com/weather/tenday/l/0a4c459da96bf45e1a5e2e7b3f8c3e3c07175b0345ad984609c5ece3c8be63a7",
+					"https://weather.com/weather/tenday/l/4e630ab6daef864f00eb93dd59c63488a36f442c012f76107555f53ffd0532b1"
+					];
+
+*/
+
+
+
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+<body background="images/weather.png">
+<font color="white" face="Comic Sans MS" size="5">
+<h1>Bay Area Weather</h1>
+
+<input type = "text" id="climate" size=40>
+
+<br></br>
+
+<input type="button" value="Check Weather" onclick="seeW()"/>
+
+
+
+
+</body>
+</html>
